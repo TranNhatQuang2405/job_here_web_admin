@@ -1,0 +1,10 @@
+.body__layout {
+  padding: 8px 48px;
+  background-color: var(--bs-body-bg);
+}
+
+@media screen and (width < 768px) {
+  .body__layout {
+    padding: 8px 4px;
+  }
+}

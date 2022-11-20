@@ -1,9 +1,15 @@
-import React from 'react'
+import React, { memo, useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
+import _ from "underscore";
 
-function ManageJob() {
-    return (
-        <div>ManageJob</div>
-    )
-}
+const ManageJob = () => {
+  const { t } = useTranslation();
 
-export default ManageJob
+  return (
+    <div>
+      <h4>{t("admin.nav.company")}</h4>
+    </div>
+  );
+};
+
+export default memo(ManageJob);
