@@ -1,7 +1,9 @@
-.Page__body{
+.Page__body {
     height: 100vh;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
     background-color: var(--bs-body-bg) !important;
+    padding-left: 0;
+    padding-right: 0;
 }

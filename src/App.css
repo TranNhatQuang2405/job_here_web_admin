@@ -1,4 +1,6 @@
 :root {
+  --jh-primary-color: #f55742;
+  --jh-primary-color-hover: #eb5541;
   --bs-sidebar-bg: #ffffff;
   --bs-sidebar-menu-item-color: #878a92;
   --bs-sidebar-menu-item-active-color: #7269ef;
@@ -54,9 +56,6 @@
   --bs-input-check-border: var(--bs-input-border);
   --bs-theme-mode-icon: "";
   --bs-input-card-bg: rgba(230, 235, 245, 0.25);
-}
-*{
-  color: black;
 }
 
 .fz-8 {
@@ -204,11 +203,12 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
 
-.bg-app-dark{
+.bg-app-dark {
   background-color: #222831 !important;
 }
