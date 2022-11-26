@@ -1,10 +1,5 @@
 import Service from "Config/Api/Service";
-import {
-  signInURL,
-  getSessionURL,
-  signUpURL,
-  authCodeURL,
-} from "Config/Api/ConfigURL";
+import { signInURL, getSessionURL, signUpURL } from "Config/Api/ConfigURL";
 
 class AuthBusiness extends Service {
   SignIn = async (email, password) => {
@@ -30,12 +25,6 @@ class AuthBusiness extends Service {
       phone: phone,
     };
     let result = await this.post(signUpURL, params);
-    return result;
-  };
-
-  AuthCode = async (code) => {
-    let params = { code: code };
-    let result = await this.post(authCodeURL, params);
     return result;
   };
 }

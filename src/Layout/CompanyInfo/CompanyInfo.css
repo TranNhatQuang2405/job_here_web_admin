@@ -1,0 +1,141 @@
+.companyInfo__header {
+    margin-top: 16px;
+    width: 100%;
+    min-height: 400px;
+    position: relative;
+    border: 1px solid black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.companyInfo__header-content-bound {
+    display: flex;
+    margin-top: -25px;
+}
+
+.companyInfo__header-content {
+    align-self: flex-end;
+    min-height: 100px;
+    margin-left: 16px;
+    margin-bottom: 16px;
+    padding-top: 25px;
+    width: 100%;
+    z-index: 1;
+}
+
+.companyInfo__header-avatar {
+    align-self: flex-start;
+    margin-left: 16px;
+    margin-bottom: 16px;
+    z-index: 1;
+}
+
+.companyInfo__header-text {
+    color: black;
+    font-size: 20px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+
+.companyInfo__header-companyName {
+    font-size: xx-large;
+    font-weight: 600;
+}
+
+.companyInfo__header-background {
+    /* position: absolute; */
+    width: 100%;
+    height: 280px;
+    border-radius: 10px;
+    z-index: 0;
+    object-fit: cover;
+}
+
+.companyInfo__header-background>img {
+    width: 100%;
+}
+
+.companyInfo__body {
+    width: 100%;
+    margin-top: 8px;
+}
+
+.company__body-bound {
+    column-gap: 16px !important;
+}
+
+.companyInfo__body-left {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+.companyInfo__body-title {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.companyInfo__body-title-line {
+    height: 30px;
+    width: 8px;
+    margin-right: 8px;
+    background-color: #E34C31;
+}
+
+.companyInfo__body-content {
+    text-align: justify;
+}
+
+.companyInfo__body-right-bound {
+    padding-left: 25px !important;
+}
+
+.companyInfo__body-right {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+@media screen and (width < 992px) {
+    .companyInfo__header {
+        min-height: 150px;
+        height: auto;
+        flex-direction: column;
+    }
+
+    .companyInfo__header-background {
+        height: 100%;
+        position: absolute;
+    }
+
+    .companyInfo__header-avatar {
+        align-self: center;
+    }
+
+    .companyInfo__header-companyName {
+        font-size: 25px;
+    }
+
+    .companyInfo__header-content-bound {
+        flex-direction: column;
+        margin-top: 0;
+    }
+
+    .companyInfo__header-content {
+        background-color: rgba(220, 220, 220, 0.2);
+        margin: 0;
+    }
+
+    .companyInfo__body-right-bound {
+        margin-top: 16px;
+        padding-left: calc(var(--bs-gutter-x) * .5) !important;
+    }
+}
