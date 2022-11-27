@@ -1,0 +1,34 @@
+.AlertModal__body-success {
+  background-color: #00ff80;
+}
+.AlertModal__body-warn {
+  background-color: wheat;
+}
+.AlertModal__body-fail {
+  background-color: salmon;
+}
+
+.AlertModal__header-success {
+  background-color: #00ff80;
+}
+.AlertModal__header-warn {
+  background-color: wheat;
+}
+.AlertModal__header-fail {
+  background-color: salmon;
+}
+
+.AlertModal__body-text {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.AlertModal__bound {
+  width: 100%;
+  height: fit-content;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}

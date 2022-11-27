@@ -1,0 +1,49 @@
+.ListJobItem__bound{
+    display: flex;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    border: 1px #666 solid;
+    border-radius: 10px;
+    padding: 8px;
+    width: 100%;
+    position: relative;
+}
+.ListJobItem__content{
+    padding-top: 8px;
+    padding-bottom: 8px;
+    margin-left: 8px;
+    width: calc(100% - 80px - 16px);
+}
+.ListJobItem__jobName{
+    font-size: 15px;
+    font-weight: 600;
+}
+.ListJobItem__jobName-link{
+    text-decoration: none;
+    color: #111111;
+}
+.ListJobItem__jobName-link:hover{
+    color:  #E34C31;
+}
+.ListJobItem__jobTime{
+    font-size: 12px;
+    padding-right: 8px;
+    font-weight: 500;
+    white-space: nowrap; 
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.ListJobItem__info{
+    display: flex;
+    column-gap: 10px;
+    margin-top: 8px;
+}
+
+.ListJobItem__info-item{
+    background-color: #cccccc;
+    padding: 3px 6px;
+    border-radius: 10px;
+    font-size: 13px;
+}

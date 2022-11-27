@@ -1,0 +1,4 @@
+.LoadingSpinner__container > .spinner-border {
+  color: var(--jh-primary-color);
+  margin-bottom: 5px;
+}

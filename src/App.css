@@ -1,6 +1,23 @@
 :root {
+  /* Job Here Color */
   --jh-primary-color: #f55742;
+  --jh-white-color: #ffffff;
+  --jh-dark-gray-color: #999999;
+  --jh-black-color: #000000;
+  /* Hover Color */
   --jh-primary-color-hover: #eb5541;
+  --jh-white-color-hover: #dbdbdb;
+  /* Text Color */
+  --jh-primary-text-color: #333333;
+  /* Background Color */
+  --jh-white-background: #ffffff;
+  --jh-box-background: #00b14f0d;
+  --jh-page-background: #e5e5e5;
+  --jh-item-background: #e9f7ef;
+  /* Border Color */
+  --jh-primary-border-color: #eeeeee;
+  --jh-secondary-border-color: #ced4da;
+
   --bs-sidebar-bg: #ffffff;
   --bs-sidebar-menu-item-color: #878a92;
   --bs-sidebar-menu-item-active-color: #7269ef;
@@ -56,6 +73,10 @@
   --bs-input-check-border: var(--bs-input-border);
   --bs-theme-mode-icon: "";
   --bs-input-card-bg: rgba(230, 235, 245, 0.25);
+}
+
+* {
+  color: black;
 }
 
 .fz-8 {
@@ -190,7 +211,6 @@
   background: var(--bs-sidebar-menu-item-color);
 }
 
-
 .lh-2 {
   line-height: 2 !important;
 }
@@ -211,4 +231,16 @@
 
 .bg-app-dark {
   background-color: #222831 !important;
+}
+
+/* Pagination */
+.pagination .page-item > .page-link {
+  color: var(--jh-primary-color) !important;
+}
+
+.pagination .page-item.active > .page-link {
+  color: var(--jh-white-color) !important;
+  background-color: var(--jh-primary-color) !important;
+  border-color: var(--jh-primary-color) !important;
+
 }

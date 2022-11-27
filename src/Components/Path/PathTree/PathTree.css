@@ -1,0 +1,27 @@
+.PathTree a {
+  text-decoration: none;
+  color: #000;
+}
+
+.PathTree__path {
+  margin-right: 20px;
+}
+
+.PathTree__last-path a,
+.PathTree__last-path i {
+  font-weight: 600;
+  color: var(--jh-primary-color);
+}
+
+.PathTree__path i,
+.PathTree__last-path i {
+  margin-right: 20px;
+}
+
+.PathTree__last-path a:hover {
+  color: var(--jh-primary-color-hover);
+}
+
+.PathTree__path a:hover {
+  color: var(--jh-primary-color);
+}
