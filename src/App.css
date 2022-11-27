@@ -238,5 +238,10 @@
   color: var(--jh-white-color) !important;
   background-color: var(--jh-primary-color) !important;
   border-color: var(--jh-primary-color) !important;
+}
 
+/* Plots */
+.plots__container {
+  max-width: 96%;
+  justify-content: center;
 }
