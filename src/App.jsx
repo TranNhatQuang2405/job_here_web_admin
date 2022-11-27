@@ -18,7 +18,7 @@ import {
 import { Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "Config/Provider";
 
-function App() {
+const App = () => {
   return (
     <I18nextProvider i18n={i18n}>
       <AuthProvider>
@@ -41,6 +41,6 @@ function App() {
       </AuthProvider>
     </I18nextProvider>
   );
-}
+};
 
 export default App;
