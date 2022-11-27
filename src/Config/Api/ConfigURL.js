@@ -36,3 +36,6 @@ export const getVisitByMonth = "/report/getVisitByMonth";
 export const getNewUserByMonth = "/report/getNewUserByMonth";
 export const getNewJobByMonth = "/report/getNewJobByMonth";
 export const getNewCompanyByMonth = "/report/getNewCompanyByMonth";
+export const getTotalJobByActive = "/report/getTotalJobByIsActive";
+export const getTotalJobByEndDate = "/report/getTotalJobByEndDate";
+export const getTotalCompanyByActive = "/report/getTotalCompanyByIsActive";
