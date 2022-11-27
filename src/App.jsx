@@ -10,6 +10,7 @@ import {
   ManageUser,
   CompanyInfo,
   JobInfo,
+  Report,
 } from "Layout";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "Config/Provider";
@@ -21,13 +22,14 @@ function App() {
         <PageTemplate>
           <Routes>
             <Route path="/SignIn" element={<SignInPage />} />
-            <Route path="/Home" element={<MainPage />} />
+            {/* <Route path="/Home" element={<MainPage />} /> */}
             <Route path="/manageCompany" element={<ManageCompany />} />
             <Route path="/companyInfo/:id" element={<CompanyInfo />} />
             <Route path="/manageJob" element={<ManageJob />} />
             <Route path="/jobInfo/:id" element={<JobInfo />} />
             <Route path="/manageUser" element={<ManageUser />} />
-            <Route path="*" element={<Navigate to="/Home" />} />
+            <Route path="/report" element={<Report />} />
+            <Route path="*" element={<Navigate to="/manageCompany" />} />
           </Routes>
         </PageTemplate>
       </AuthProvider>

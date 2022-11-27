@@ -1,5 +1,6 @@
 .body__layout {
   padding: 0 !important;
+  padding-left: 8px !important;
   background-color: var(--bs-body-bg);
   flex-grow: 1;
 }
