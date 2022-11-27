@@ -74,6 +74,7 @@
   --bs-theme-mode-icon: "";
   --bs-input-card-bg: rgba(230, 235, 245, 0.25);
 }
+
 * {
   color: black;
 }
@@ -222,6 +223,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -240,4 +242,5 @@
   color: var(--jh-white-color) !important;
   background-color: var(--jh-primary-color) !important;
   border-color: var(--jh-primary-color) !important;
+
 }
