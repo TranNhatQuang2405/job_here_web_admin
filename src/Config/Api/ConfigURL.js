@@ -10,6 +10,12 @@ export const deactiveCompanyURL = "/admin/deActiveCompany";
 export const getCompanyInfoURL = "/user/company/getCompanyInfo";
 export const getAllJobOfCompanyURL = "/user/company/getAllJobOfCompany";
 
+// Job
+export const getListJobURL = "/admin/getListJob";
+export const activeJobURL = "/admin/activeJob";
+export const deactiveJobURL = "/admin/deActiveJob";
+export const getJobInfoURL = "/job/getJobInfo";
+
 //Dropdown
 export const genderDropdownURL = "/dropdown/gender";
 export const industryDropdownURL = "/dropdown/industry";

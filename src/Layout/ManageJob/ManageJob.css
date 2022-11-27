@@ -1,13 +1,18 @@
-.listCompany__item-center {
+.listJob__item-center {
   vertical-align: middle;
 }
 
-.listCompany__item-link {
+.listJob__item-link {
   text-decoration: none;
   color: var(--bs-body-color);
   font-weight: 600;
 }
 
-.listCompany__item-link:hover {
+.listJob__item-link:hover {
   color: var(--jh-primary-color);
+}
+
+.listJob__parent {
+  width: 100%;
+  overflow-y: auto;
 }

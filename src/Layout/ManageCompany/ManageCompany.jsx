@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { memo, useState, useEffect } from "react";
 import "./ManageCompany.css";
 import { Table, FormCheck } from "react-bootstrap";
 import { Avatar } from "Components/Image";
@@ -226,4 +226,4 @@ const ManageCompany = () => {
   );
 };
 
-export default ManageCompany;
+export default memo(ManageCompany);
