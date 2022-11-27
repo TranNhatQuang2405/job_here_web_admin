@@ -1,63 +1,66 @@
-import React from 'react'
-import { Menu } from 'antd';
+import React, { memo } from "react";
+import { Menu } from "antd";
 import {
-    AppstoreOutlined,
-    ContainerOutlined,
-    DesktopOutlined,
-    MailOutlined,
-    PieChartOutlined,
-} from '@ant-design/icons';
+  BankOutlined,
+  DesktopOutlined,
+  UserOutlined,
+  PieChartOutlined,
+} from "@ant-design/icons";
 import "./MenuBar.css";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { changeCurrentMenuKey } from "Config/Redux/Slice/CurrentMenuKeySlice.js";
+import { useTranslation } from "react-i18next";
 
-function MenuBar() {
-    const collapsed = useSelector((state) => state.Menu.show);
+const MenuBar = () => {
+  const { t } = useTranslation();
+  const collapsed = useSelector((state) => state.Menu.show);
+  const selectedKey = useSelector((state) => state.MenuKey.key);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-    function getItem(
-        label,
-        key,
-        icon,
-        children,
-        type,
-    ) {
-        return {
-            key,
-            icon,
-            children,
-            label,
-            type,
-        }
+  const getItem = (label, key, icon, children, type) => {
+    return {
+      key,
+      icon,
+      children,
+      label,
+      type,
+    };
+  };
+
+  const items = [
+    getItem(t("manageCompany"), "1", <BankOutlined />),
+    getItem(t("manageJob"), "2", <DesktopOutlined />),
+    getItem(t("manageUser"), "3", <UserOutlined />),
+    getItem(t("report"), "4", <PieChartOutlined />),
+  ];
+
+  const onClickItem = (e) => {
+    if (e.key === "1") {
+      navigate("/manageCompany");
+    } else if (e.key === "2") {
+      navigate("/manageJob");
+    } else if (e.key === "3") {
+      navigate("/manageUser");
+    } else if (e.key === "4") {
+      navigate("/report");
     }
-    const items = [
-        getItem('Option 1', '1', <PieChartOutlined />),
-        getItem('Option 2', '2', <DesktopOutlined />),
-        getItem('Option 3', '3', <ContainerOutlined />),
-        getItem('Navigation One', 'sub1', <MailOutlined />, [
-            getItem('Option 5', '5'),
-            getItem('Option 6', '6'),
-            getItem('Option 7', '7'),
-            getItem('Option 8', '8'),
-        ]),
-        getItem('Navigation Two', 'sub2', <AppstoreOutlined />, [
-            getItem('Option 9', '9'),
-            getItem('Option 10', '10'),
+    dispatch(changeCurrentMenuKey(e.key));
+  };
 
-            getItem('Submenu', 'sub3', null, [getItem('Option 11', '11'), getItem('Option 12', '12')]),
-        ]),
-    ];
+  return (
+    <div className="MenuBar__bound">
+      <Menu
+        selectedKeys={[selectedKey]}
+        mode="inline"
+        theme="dark"
+        inlineCollapsed={collapsed}
+        items={items}
+        onClick={onClickItem}
+      />
+    </div>
+  );
+};
 
-    return (
-        <div className="MenuBar__bound">
-            <Menu
-                defaultSelectedKeys={['1']}
-                defaultOpenKeys={['sub1']}
-                mode="inline"
-                theme="dark"
-                inlineCollapsed={collapsed}
-                items={items}
-            />
-        </div>
-    )
-}
-
-export default MenuBar
+export default memo(MenuBar);

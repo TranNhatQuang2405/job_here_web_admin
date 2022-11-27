@@ -1,7 +1,7 @@
 .Footer__layout {
   background: #222831 !important;
   padding: 8px 48px;
-  margin-top: auto;
+  margin-top: auto !important   ;
 }
 
 .Footer__layout .nav-link {

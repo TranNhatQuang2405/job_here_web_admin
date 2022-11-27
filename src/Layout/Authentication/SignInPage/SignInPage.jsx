@@ -40,7 +40,7 @@ const SignInPage = () => {
 		if (signIn.data.httpCode === 200) {
 			dispatch(changeToken(signIn.data.objectData.token));
 			dispatch(SetIsPending());
-			navigate("/Home")
+			navigate("/manageCompany")
 		} else {
 			modalRef.current.setMessage("Wrong Email or Password!");
 			modalRef.current.onToggleModal();
