@@ -4,6 +4,9 @@ import {
   getNewUserByMonth,
   getNewJobByMonth,
   getNewCompanyByMonth,
+  getTotalJobByActive,
+  getTotalJobByEndDate,
+  getTotalCompanyByActive,
 } from "Config/Api/ConfigURL";
 
 class ReportBusiness extends Service {
@@ -22,8 +25,23 @@ class ReportBusiness extends Service {
     return result;
   };
 
+  GetTotalJobByActive = async () => {
+    let result = await this.get(getTotalJobByActive);
+    return result;
+  };
+
+  GetTotalJobByEndDate = async () => {
+    let result = await this.get(getTotalJobByEndDate);
+    return result;
+  };
+
   GetNewCompanyByMonth = async (month) => {
     let result = await this.get(`${getNewCompanyByMonth}/${month}`);
+    return result;
+  };
+
+  GetAllCompanyByActive = async () => {
+    let result = await this.get(getTotalCompanyByActive);
     return result;
   };
 }
