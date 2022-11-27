@@ -8,7 +8,7 @@ const Footer = () => {
 	const { t } = useTranslation();
 
 	return (
-		<Row className="Footer__layout bg">
+		<Row className="Footer__layout bg m-0">
 			<Col md={3}>
 				<div className="align-items-center justify-content-center mb-1">
 					<Logo isDark />
