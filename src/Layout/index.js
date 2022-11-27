@@ -4,4 +4,7 @@ export { default as ManageCompany } from "./ManageCompany/ManageCompany";
 export { default as ManageJob } from "./ManageJob/ManageJob";
 export { default as ManageUser } from "./ManageUser/ManageUser";
 export { default as MainPage } from "./MainPage/MainPage";
-export { default as Report } from "./Report/Report";
+export { default as ReportCompany } from "./Report/ReportCompany/ReportCompany";
+export { default as ReportJob } from "./Report/ReportJob/ReportJob";
+export { default as ReportSystem } from "./Report/ReportSystem/ReportSystem";
+export { default as ReportUser } from "./Report/ReportUser/ReportUser";

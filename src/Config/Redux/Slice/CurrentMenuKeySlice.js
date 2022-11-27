@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
-  key: "1",
+  key: localStorage.getItem("menuKey"),
 };
 
 export const CurrentMenuKeylice = createSlice({
@@ -9,6 +9,7 @@ export const CurrentMenuKeylice = createSlice({
   reducers: {
     changeCurrentMenuKey: (state, action) => {
       state.key = action.payload;
+      localStorage.setItem("menuKey", action.payload);
     },
   },
 });

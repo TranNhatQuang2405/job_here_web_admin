@@ -33,7 +33,12 @@ const MenuBar = () => {
     getItem(t("manageCompany"), "1", <BankOutlined />),
     getItem(t("manageJob"), "2", <DesktopOutlined />),
     getItem(t("manageUser"), "3", <UserOutlined />),
-    getItem(t("report"), "4", <PieChartOutlined />),
+    getItem(t("report"), "sub1", <PieChartOutlined />, [
+      getItem(t("reportSystem"), "4"),
+      getItem(t("reportCompany"), "5"),
+      getItem(t("reportJob"), "6"),
+      getItem(t("reportUser"), "7"),
+    ]),
   ];
 
   const onClickItem = (e) => {
@@ -44,7 +49,13 @@ const MenuBar = () => {
     } else if (e.key === "3") {
       navigate("/manageUser");
     } else if (e.key === "4") {
-      navigate("/report");
+      navigate("/report/reportSystem");
+    } else if (e.key === "5") {
+      navigate("/report/reportCompany");
+    } else if (e.key === "6") {
+      navigate("/report/reportJob");
+    } else if (e.key === "7") {
+      navigate("/report/reportUser");
     }
     dispatch(changeCurrentMenuKey(e.key));
   };
@@ -53,6 +64,7 @@ const MenuBar = () => {
     <div className="MenuBar__bound">
       <Menu
         selectedKeys={[selectedKey]}
+        defaultOpenKeys={['sub1']}
         mode="inline"
         theme="dark"
         inlineCollapsed={collapsed}

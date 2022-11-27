@@ -30,3 +30,9 @@ export const titleDropdownURL = "/dropdown/title";
 export const jobtypeDropdownURL = "/dropdown/jobtype";
 export const cityDropdownURL = "/dropdown/city";
 export const unitDropdownURL = "/dropdown/unit";
+
+// Report
+export const getVisitByMonth = "/report/getVisitByMonth";
+export const getNewUserByMonth = "/report/getNewUserByMonth";
+export const getNewJobByMonth = "/report/getNewJobByMonth";
+export const getNewCompanyByMonth = "/report/getNewCompanyByMonth";

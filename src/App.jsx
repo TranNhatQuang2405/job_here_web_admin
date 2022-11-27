@@ -10,7 +10,10 @@ import {
   ManageUser,
   CompanyInfo,
   JobInfo,
-  Report,
+  ReportCompany,
+  ReportJob,
+  ReportSystem,
+  ReportUser,
 } from "Layout";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "Config/Provider";
@@ -28,7 +31,10 @@ function App() {
             <Route path="/manageJob" element={<ManageJob />} />
             <Route path="/jobInfo/:id" element={<JobInfo />} />
             <Route path="/manageUser" element={<ManageUser />} />
-            <Route path="/report" element={<Report />} />
+            <Route path="/report/reportCompany" element={<ReportCompany />} />
+            <Route path="/report/reportJob" element={<ReportJob />} />
+            <Route path="/report/reportSystem" element={<ReportSystem />} />
+            <Route path="/report/reportUser" element={<ReportUser />} />
             <Route path="*" element={<Navigate to="/manageCompany" />} />
           </Routes>
         </PageTemplate>
