@@ -37,7 +37,7 @@ const Header = (props) => {
         dispatch(toggleMenu())
     }
     return (
-        <Row className="sticky-nav">
+        <Row className="sticky-nav m-0">
             <Col className="bg-app-dark d-flex">
                 <div className="Header__toggleMenu-layout">
                     <Button type="primary" onClick={onToggleMenu} className="Header__toggleMenu-btn">

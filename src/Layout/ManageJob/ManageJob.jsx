@@ -25,7 +25,7 @@ const ManageJob = () => {
   const [listCompany, setListCompany] = useState([]);
   const [filterData, setFilterData] = useState({
     company: 0,
-    isActive: true,
+    isActive: false,
     createDate: true,
   });
   const [currentJob, setCurrentJob] = useState({});
@@ -65,12 +65,12 @@ const ManageJob = () => {
       isActive
     );
     if (results.data.httpCode === 200) {
-      let companyListData = results.data?.objectData?.pageData ?? [];
+      let jobListData = results.data?.objectData?.pageData ?? [];
       if (totalPage !== results.data.objectData.totalPage) {
         let newTotalPage = results.data.objectData.totalPage;
         setTotalPage(newTotalPage);
       }
-      setListJob(companyListData);
+      setListJob(jobListData);
     }
     setLoading(false);
   };
@@ -81,11 +81,19 @@ const ManageJob = () => {
   };
 
   const onChangeFilterIsActive = (e) => {
-    setFilterData((prev) => ({ ...prev, isActive: e.target.checked }));
+    setFilterData((prev) => ({
+      ...prev,
+      isActive: e.target.checked,
+      createDate: !e.target.checked,
+    }));
   };
 
   const onChangeFilterCreateDate = (e) => {
-    setFilterData((prev) => ({ ...prev, createDate: e.target.checked }));
+    setFilterData((prev) => ({
+      ...prev,
+      createDate: e.target.checked,
+      isActive: !e.target.checked,
+    }));
   };
 
   const onChangePage = (page) => () => {
@@ -182,16 +190,18 @@ const ManageJob = () => {
             </option>
           ))}
         </Form.Select>
-        <FormCheck
+        <Form.Check
           className="m-2"
-          type="checkbox"
+          type="radio"
+          name="filter"
           label={t("admin.manage.job.sort.isactive")}
           checked={filterData.isActive}
           onChange={onChangeFilterIsActive}
         />
-        <FormCheck
+        <Form.Check
           className="m-2"
-          type="checkbox"
+          type="radio"
+          name="filter"
           label={t("admin.manage.job.sort.createdate")}
           checked={filterData.createDate}
           onChange={onChangeFilterCreateDate}

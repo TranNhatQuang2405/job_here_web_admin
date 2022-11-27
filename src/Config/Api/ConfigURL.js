@@ -16,6 +16,11 @@ export const activeJobURL = "/admin/activeJob";
 export const deactiveJobURL = "/admin/deActiveJob";
 export const getJobInfoURL = "/job/getJobInfo";
 
+// User
+export const getListUserURL = "/admin/getListUser";
+export const activeUserURL = "/admin/acticeUser";
+export const deactiveUserURL = "/admin/deActiceUser";
+
 //Dropdown
 export const genderDropdownURL = "/dropdown/gender";
 export const industryDropdownURL = "/dropdown/industry";

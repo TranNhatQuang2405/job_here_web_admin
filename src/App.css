@@ -75,10 +75,6 @@
   --bs-input-card-bg: rgba(230, 235, 245, 0.25);
 }
 
-* {
-  color: black;
-}
-
 .fz-8 {
   font-size: 8px;
 }
