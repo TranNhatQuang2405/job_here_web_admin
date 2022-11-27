@@ -4,7 +4,7 @@ import _ from "underscore";
 import { useLocation, Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-const PathTree = ({ lastPath = "" }) => {
+const PathTree = ({ lastPath = "", activeCenter, activeStart }) => {
   const location = useLocation();
   const [paths, setPaths] = useState([]);
   const { t } = useTranslation();
@@ -26,9 +26,12 @@ const PathTree = ({ lastPath = "" }) => {
     }
     setPaths(tmpPath);
   }, [lastPath, location.pathname]);
-
-  const creatUrl = (child) => {
+  const creatUrl = (child, index) => {
     let url = "";
+    if (!activeCenter && index !== paths.length - 1 && index > 0)
+      return location.pathname;
+    if (!activeStart && index !== paths.length - 1 && index === 0)
+      return location.pathname;
     for (let i = 0; i < paths.length; i++) {
       if (paths[i] !== child) {
         url += "/" + paths[i].pathId;
@@ -53,7 +56,7 @@ const PathTree = ({ lastPath = "" }) => {
           }
         >
           <i className="bi bi-chevron-right" />
-          <Link to={creatUrl(ele)} disabled={index === paths.length - 1}>
+          <Link to={creatUrl(ele, index)} disabled={index === paths.length - 1}>
             {t(ele.pathName)}
           </Link>
         </div>
