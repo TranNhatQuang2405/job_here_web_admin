@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { MonthPicker } from "Components/Picker";
 import { reportBusiness } from "Business";
 import { LineChart } from "Components/Chart";
+import { useTranslation } from "react-i18next";
 
 const ReportNewCompany = () => {
+  const { t } = useTranslation();
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -24,7 +26,11 @@ const ReportNewCompany = () => {
       <LineChart
         data={data}
         loading={loading}
-        fieldLabel={{ xField: "date", yField: "totalNewCompany" }}
+        fieldLabel={{
+          xField: "date",
+          yField: "totalNewCompany",
+          alias: t("totalNewCompany"),
+        }}
       />
     </div>
   );

@@ -20,7 +20,7 @@ const LineChart = ({ data = [], loading = false, fieldLabel = {} }) => {
     },
     meta: {
       [fieldLabel.yField]: {
-        alias: t(fieldLabel.yField),
+        alias: fieldLabel.alias,
       },
     },
   };
