@@ -160,6 +160,7 @@ export const en = {
   reportUser: "User Report",
   "admin.report.user.new": "New User",
   totalNewUser: "Total New User",
+  'admin.report.nodata':'No Data',
 };
 
 export const vn = {
@@ -323,4 +324,5 @@ export const vn = {
   reportUser: "Báo Cáo Người Dùng",
   "admin.report.user.new": "Người dùng mới",
   totalNewUser: "Số người dùng mới",
+  'admin.report.nodata':'Không có dữ liệu',
 };
