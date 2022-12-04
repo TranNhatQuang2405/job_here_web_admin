@@ -1,6 +1,6 @@
 import React, { memo, useState, useEffect } from "react";
 import "./ManageCompany.css";
-import { Table, FormCheck } from "react-bootstrap";
+import { Table, Form, FormCheck } from "react-bootstrap";
 import { Avatar } from "Components/Image";
 import { PathTree } from "Components/Path";
 import { LoadingSpinner } from "Components/Loading";
@@ -23,6 +23,10 @@ const ManageCompany = () => {
     title: t("admin.manage.company.active"),
     httpCode: 200,
   });
+  const [filterData, setFilterData] = useState({
+    isActive: false,
+    createDate: true,
+  });
   const [currentCompany, setCurrentCompany] = useState({});
   const [activePage, setActivePage] = useState(0);
   const [totalPage, setTotalPage] = useState(0);
@@ -30,11 +34,16 @@ const ManageCompany = () => {
 
   useEffect(() => {
     getData();
-  }, [activePage]);
+  }, [activePage, filterData]);
 
   const getData = async () => {
     setLoading(true);
-    let results = await companyBusiness.GetListCompany(activePage, pageSize);
+    let results = await companyBusiness.GetListCompany(
+      activePage,
+      pageSize,
+      filterData.createDate,
+      filterData.isActive
+    );
     if (results.data.httpCode === 200) {
       let companyListData = results.data?.objectData?.pageData ?? [];
       if (totalPage !== results.data.objectData.totalPage) {
@@ -50,6 +59,22 @@ const ManageCompany = () => {
     if (page >= 0 && page < totalPage) {
       setActivePage(page);
     }
+  };
+
+  const onChangeFilterIsActive = (e) => {
+    setFilterData((prev) => ({
+      ...prev,
+      isActive: e.target.checked,
+      createDate: !e.target.checked,
+    }));
+  };
+
+  const onChangeFilterCreateDate = (e) => {
+    setFilterData((prev) => ({
+      ...prev,
+      createDate: e.target.checked,
+      isActive: !e.target.checked,
+    }));
   };
 
   const onShowActiveConfirm = (companyId, isActive, companyName) => () => {
@@ -128,6 +153,24 @@ const ManageCompany = () => {
       />
       <AlertModal data={showAlert} onHide={onCloseAlert} />
       <PathTree />
+      <div className="d-flex align-items-center flex-wrap">
+        <Form.Check
+          className="m-2"
+          type="radio"
+          name="filter"
+          label={t("admin.manage.job.sort.isactive")}
+          checked={filterData.isActive}
+          onChange={onChangeFilterIsActive}
+        />
+        <Form.Check
+          className="m-2"
+          type="radio"
+          name="filter"
+          label={t("admin.manage.job.sort.createdate")}
+          checked={filterData.createDate}
+          onChange={onChangeFilterCreateDate}
+        />
+      </div>
       <Table striped bordered hover size="lg" responsive="sm">
         <thead>
           <tr>

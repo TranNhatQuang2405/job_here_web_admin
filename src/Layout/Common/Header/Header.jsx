@@ -36,15 +36,17 @@ const Header = (props) => {
   return (
     <Row className="sticky-nav m-0">
       <Col className="bg-app-dark d-flex">
-        <div className="Header__toggleMenu-layout">
-          <Button
-            type="primary"
-            onClick={onToggleMenu}
-            className="Header__toggleMenu-btn"
-          >
-            {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-          </Button>
-        </div>
+        {!!userInfo && (
+          <div className="Header__toggleMenu-layout">
+            <Button
+              type="primary"
+              onClick={onToggleMenu}
+              className="Header__toggleMenu-btn"
+            >
+              {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+            </Button>
+          </div>
+        )}
         <Navbar expand="lg" variant="dark" className="Header__layout">
           <Navbar.Brand href="/" className="d-flex flex-row align-items-center">
             <Logo isDark />

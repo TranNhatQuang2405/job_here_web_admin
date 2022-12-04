@@ -109,13 +109,13 @@ const SignInPage = () => {
 										/>
 									</InputGroup>
 								</FormGroup>
-								<Form.Group className="mb-3" controlId="formBasicCheckbox">
+								{/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
 									<FormCheck
 										className="SignIn__form-check"
 										type="checkbox"
 										label={t("Remember Me")}
 									/>
-								</Form.Group>
+								</Form.Group> */}
 
 								<Button
 									variant="primary"

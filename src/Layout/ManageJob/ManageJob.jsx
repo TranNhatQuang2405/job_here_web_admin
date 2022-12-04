@@ -254,7 +254,7 @@ const ManageJob = () => {
                   </Link>
                 </td>
                 <td className="text-center listJob__item-center">
-                  <div>{Moment(ele.createDate).format("DD/MM/YYYY")}</div>
+                  <div>{Moment(ele.createdDate).format("DD/MM/YYYY")}</div>
                 </td>
                 <td className="text-center listJob__item-center">
                   <div>{Moment(ele.endDate).format("DD/MM/YYYY")}</div>
