@@ -8,8 +8,12 @@ import {
 } from "Config/Api/ConfigURL";
 
 class CompanyBusiness extends Service {
-  GetListCompany = async (page, size) => {
-    let result = await this.get(`${getListCompanyURL}?page=${page}&size=${size}`);
+  GetListCompany = async (page, size, sortCreatedDate, sortIsActice) => {
+    let result = await this.get(
+      `${getListCompanyURL}?page=${page}&size=${size}${
+        sortCreatedDate ? "&sortCreatedDate=true" : ""
+      }${sortIsActice ? "&sortIsActice=true" : ""}`
+    );
     return result;
   };
 
