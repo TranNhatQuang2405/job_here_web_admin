@@ -158,7 +158,7 @@ const ManageCompany = () => {
           className="m-2"
           type="radio"
           name="filter"
-          label={t("admin.manage.job.sort.isactive")}
+          label={t("admin.manage.company.sort.isactive")}
           checked={filterData.isActive}
           onChange={onChangeFilterIsActive}
         />
@@ -166,7 +166,7 @@ const ManageCompany = () => {
           className="m-2"
           type="radio"
           name="filter"
-          label={t("admin.manage.job.sort.createdate")}
+          label={t("admin.manage.company.sort.createdate")}
           checked={filterData.createDate}
           onChange={onChangeFilterCreateDate}
         />
