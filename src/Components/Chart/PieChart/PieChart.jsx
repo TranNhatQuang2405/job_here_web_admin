@@ -13,7 +13,7 @@ const PieChart = ({ data = [], loading = false }) => {
     colorField: "type",
     radius: 0.9,
     label: {
-      type: "inner",
+      type: "outer",
       style: {
         fontSize: 18,
         textAlign: "center",
