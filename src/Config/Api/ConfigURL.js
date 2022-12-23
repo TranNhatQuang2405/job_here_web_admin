@@ -7,8 +7,8 @@ export const signUpURL = "/auth/register";
 export const getListCompanyURL = "/admin/getListCompany";
 export const activeCompanyURL = "/admin/activeCompany";
 export const deactiveCompanyURL = "/admin/deActiveCompany";
-export const getCompanyInfoURL = "/user/company/getCompanyInfo";
-export const getAllJobOfCompanyURL = "/user/company/getAllJobOfCompany";
+export const getCompanyInfoURL = "/company/getCompanyInfo";
+export const getAllJobOfCompanyURL = "/company/getAllJobOfCompany";
 
 // Job
 export const getListJobURL = "/admin/getListJob";
