@@ -11,8 +11,8 @@ class CompanyBusiness extends Service {
   GetListCompany = async (page, size, sortCreatedDate, sortIsActice) => {
     let result = await this.get(
       `${getListCompanyURL}?page=${page}&size=${size}${
-        sortCreatedDate ? "&sortCreatedDate=true" : ""
-      }${sortIsActice ? "&sortIsActice=true" : ""}`
+        sortCreatedDate !== null ? `&sortCreatedDate=${sortCreatedDate}` : ""
+      }${sortIsActice !== null ? `&sortIsActice=${sortIsActice}` : ""}`
     );
     return result;
   };

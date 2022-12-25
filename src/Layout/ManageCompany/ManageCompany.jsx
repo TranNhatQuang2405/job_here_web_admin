@@ -24,13 +24,17 @@ const ManageCompany = () => {
     httpCode: 200,
   });
   const [filterData, setFilterData] = useState({
-    isActive: false,
+    isActive: null,
     createDate: true,
   });
   const [currentCompany, setCurrentCompany] = useState({});
   const [activePage, setActivePage] = useState(0);
   const [totalPage, setTotalPage] = useState(0);
   const pageSize = 10;
+  const sortFilter = [
+    { value: 1, label: t("admin.manage.increase") },
+    { value: 0, label: t("admin.manage.decrease") },
+  ];
 
   useEffect(() => {
     getData();
@@ -62,18 +66,29 @@ const ManageCompany = () => {
   };
 
   const onChangeFilterIsActive = (e) => {
+    let _inc = filterData.createDate;
     setFilterData((prev) => ({
       ...prev,
-      isActive: e.target.checked,
-      createDate: !e.target.checked,
+      isActive: _inc,
+      createDate: null,
     }));
   };
 
   const onChangeFilterCreateDate = (e) => {
+    let _inc = filterData.isActive;
     setFilterData((prev) => ({
       ...prev,
-      createDate: e.target.checked,
-      isActive: !e.target.checked,
+      isActive: null,
+      createDate: _inc,
+    }));
+  };
+
+  const onChangeSort = (e) => {
+    let _sort = e.target.value === "1";
+    setFilterData((prev) => ({
+      ...prev,
+      isActive: filterData.isActive !== null ? _sort : null,
+      createDate: filterData.createDate !== null ? _sort : null,
     }));
   };
 
@@ -159,7 +174,7 @@ const ManageCompany = () => {
           type="radio"
           name="filter"
           label={t("admin.manage.company.sort.isactive")}
-          checked={filterData.isActive}
+          checked={filterData.isActive !== null}
           onChange={onChangeFilterIsActive}
         />
         <Form.Check
@@ -167,9 +182,16 @@ const ManageCompany = () => {
           type="radio"
           name="filter"
           label={t("admin.manage.company.sort.createdate")}
-          checked={filterData.createDate}
+          checked={filterData.createDate !== null}
           onChange={onChangeFilterCreateDate}
         />
+        <Form.Select onChange={onChangeSort} className="m-2 ManageCompany__sort-select">
+          {_.map(sortFilter, (x, index) => (
+            <option key={index} value={x.value}>
+              {x.label}
+            </option>
+          ))}
+        </Form.Select>
       </div>
       <Table striped bordered hover size="lg" responsive="sm">
         <thead>
