@@ -10,9 +10,9 @@ class JobBusiness extends Service {
   GetListJob = async (page, size, companyId, sortCreatedDate, sortIsActice) => {
     let result = await this.get(
       `${getListJobURL}?page=${page}&size=${size}${
-        sortCreatedDate ? "&sortCreatedDate=true" : ""
+        sortCreatedDate !== null ? `&sortCreatedDate=${sortCreatedDate}` : ""
       }${!!companyId ? "&companyId=" + companyId : ""}${
-        sortIsActice ? "&sortIsActice=true" : ""
+        sortIsActice !== null ? `&sortIsActice=${sortIsActice}` : ""
       }`
     );
     return result;

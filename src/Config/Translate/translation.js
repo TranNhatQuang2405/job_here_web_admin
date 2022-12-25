@@ -171,6 +171,8 @@ export const en = {
   "admin.report.user.new": "New User",
   totalNewUser: "Total New User",
   "admin.report.nodata": "No Data",
+  "admin.manage.increase": "Increase",
+  "admin.manage.decrease": "Decrease",
 };
 
 export const vn = {
@@ -345,4 +347,6 @@ export const vn = {
   "admin.report.user.new": "Người dùng mới",
   totalNewUser: "Số người dùng mới",
   "admin.report.nodata": "Không có dữ liệu",
+  "admin.manage.increase": "Tăng dần",
+  "admin.manage.decrease": "Giảm dần",
 };

@@ -5,8 +5,10 @@ class UserBusiness extends Service {
   GetListUser = async (page, size, roleId, sortCreatedDate, sortIsActice) => {
     let result = await this.get(
       `${getListUserURL}?page=${page}&size=${size}${
-        sortCreatedDate ? "&sortCreatedDate=true" : ""
-      }${!!roleId ? "&roleId=" + roleId : ""}${sortIsActice ? "&sortIsActice=true" : ""}`
+        sortCreatedDate !== null ? `&sortCreatedDate=${sortCreatedDate}` : ""
+      }${!!roleId ? "&roleId=" + roleId : ""}${
+        sortIsActice !== null ? `&sortIsActice=${sortIsActice}` : ""
+      }`
     );
     return result;
   };

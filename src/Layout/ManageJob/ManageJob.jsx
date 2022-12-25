@@ -10,6 +10,7 @@ import Pagination from "react-bootstrap/Pagination";
 import { AlertModal, ConfirmModal } from "Components/Modal";
 import { Link } from "react-router-dom";
 import Moment from "moment";
+import { Select } from "antd";
 
 const ManageJob = () => {
   const { t } = useTranslation();
@@ -25,23 +26,31 @@ const ManageJob = () => {
   const [listCompany, setListCompany] = useState([]);
   const [filterData, setFilterData] = useState({
     company: 0,
-    isActive: false,
+    isActive: null,
     createDate: true,
   });
   const [currentJob, setCurrentJob] = useState({});
   const [activePage, setActivePage] = useState(0);
   const [totalPage, setTotalPage] = useState(0);
   const pageSize = 16;
+  const sortFilter = [
+    { value: 1, label: t("admin.manage.increase") },
+    { value: 0, label: t("admin.manage.decrease") },
+  ];
 
   useEffect(() => {
     const getFilterData = async () => {
       setLoading(true);
-      let results = await companyBusiness.GetListCompany(0, 100);
+      let results = await companyBusiness.GetListCompany(0, 100, null, null);
       if (results.data.httpCode === 200) {
-        let companyListData = results.data?.objectData?.pageData ?? [];
+        let _companyListData = results.data?.objectData?.pageData ?? [];
+        let companyListData = _.map(_companyListData, (company) => ({
+          value: company.companyId,
+          label: company.companyName,
+        }));
         companyListData.unshift({
-          companyId: 0,
-          companyName: t("admin.manage.job.allcompany"),
+          value: 0,
+          label: t("admin.manage.job.allcompany"),
         });
         setListCompany(companyListData);
       }
@@ -75,24 +84,35 @@ const ManageJob = () => {
     setLoading(false);
   };
 
-  const onChangeFilterCompany = (e) => {
+  const onChangeFilterCompany = (value, option) => {
     setActivePage(0);
-    setFilterData((prev) => ({ ...prev, company: e.target.value }));
+    setFilterData((prev) => ({ ...prev, company: value }));
   };
 
   const onChangeFilterIsActive = (e) => {
+    let _inc = filterData.createDate;
     setFilterData((prev) => ({
       ...prev,
-      isActive: e.target.checked,
-      createDate: !e.target.checked,
+      isActive: _inc,
+      createDate: null,
     }));
   };
 
   const onChangeFilterCreateDate = (e) => {
+    let _inc = filterData.isActive;
     setFilterData((prev) => ({
       ...prev,
-      createDate: e.target.checked,
-      isActive: !e.target.checked,
+      isActive: null,
+      createDate: _inc,
+    }));
+  };
+
+  const onChangeSort = (e) => {
+    let _sort = e.target.value === "1";
+    setFilterData((prev) => ({
+      ...prev,
+      isActive: filterData.isActive !== null ? _sort : null,
+      createDate: filterData.createDate !== null ? _sort : null,
     }));
   };
 
@@ -179,23 +199,29 @@ const ManageJob = () => {
       <AlertModal data={showAlert} onHide={onCloseAlert} />
       <PathTree />
       <div className="d-flex align-items-center flex-wrap">
-        <Form.Select
-          onChange={onChangeFilterCompany}
-          value={filterData.company}
-          className="mt-2 mb-2"
-        >
-          {_.map(listCompany, (x, index) => (
-            <option key={index} value={x.companyId}>
-              {x.companyName}
-            </option>
-          ))}
-        </Form.Select>
+        <Select
+          showSearch
+          defaultValue={0}
+          className="w-100 mt-2 mb-2"
+          placeholder="Search to Select"
+          optionFilterProp="children"
+          filterOption={(input, option) =>
+            (option?.label?.toLowerCase() ?? "").includes(input?.toLowerCase())
+          }
+          filterSort={(optionA, optionB) =>
+            (optionA?.label ?? "")
+              .toLowerCase()
+              .localeCompare((optionB?.label ?? "").toLowerCase())
+          }
+          onSelect={onChangeFilterCompany}
+          options={listCompany}
+        />
         <Form.Check
           className="m-2"
           type="radio"
           name="filter"
           label={t("admin.manage.job.sort.isactive")}
-          checked={filterData.isActive}
+          checked={filterData.isActive !== null}
           onChange={onChangeFilterIsActive}
         />
         <Form.Check
@@ -203,9 +229,16 @@ const ManageJob = () => {
           type="radio"
           name="filter"
           label={t("admin.manage.job.sort.createdate")}
-          checked={filterData.createDate}
+          checked={filterData.createDate !== null}
           onChange={onChangeFilterCreateDate}
         />
+        <Form.Select onChange={onChangeSort} className="m-2 ManageJob__sort-select">
+          {_.map(sortFilter, (x, index) => (
+            <option key={index} value={x.value}>
+              {x.label}
+            </option>
+          ))}
+        </Form.Select>
       </div>
       <Table striped bordered hover size="lg" responsive="sm">
         <thead>
