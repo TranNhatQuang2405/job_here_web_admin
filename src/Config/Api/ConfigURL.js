@@ -1,7 +1,6 @@
 // Auth
 export const getSessionURL = "/user/getSession";
-export const signInURL = "/auth/login";
-export const signUpURL = "/auth/register";
+export const signInURL = "/auth/loginWithAdmin";
 
 // Company
 export const getListCompanyURL = "/admin/getListCompany";
